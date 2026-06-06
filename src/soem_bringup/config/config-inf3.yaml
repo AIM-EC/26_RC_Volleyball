@@ -1,0 +1,147 @@
+slaves:
+  - sn3604532:
+      sdo_len: !uint16_t 150
+      task_count: !uint8_t 4
+      latency_pub_topic: !std::string '/ecat/sn3604532/latency'
+
+      tasks:
+        - app_1:
+            sdowrite_task_type: !uint8_t 3
+            conf_connection_lost_read_action: !uint8_t 0x02
+            pub_topic: !std::string '/gimbal_imu_read'
+            pdoread_offset: !uint16_t 0
+            sdowrite_can_inst: !uint8_t 1
+            sdowrite_packet1_id: !uint32_t 0x01
+            sdowrite_packet2_id: !uint32_t 0x02
+            sdowrite_packet3_id: !uint32_t 0x03
+            conf_frame_name: !std::string 'imu_link'
+        - app_2:
+            sdowrite_task_type: !uint8_t 5
+            conf_connection_lost_read_action: !uint8_t 0x02
+            sdowrite_connection_lost_write_action: !uint8_t 0x02
+            pub_topic: !std::string '/bullet_supply_motor_read'
+            pdoread_offset: !uint16_t 21
+            sub_topic: !std::string '/bullet_supply_motor_write'
+            pdowrite_offset: !uint16_t 0
+            sdowrite_control_period: !uint16_t 1
+            sdowrite_can_packet_id: !uint32_t 0x200
+            sdowrite_motor1_can_id: !uint32_t 0x201
+            sdowrite_motor2_can_id: !uint32_t 0x202
+            sdowrite_motor3_can_id: !uint32_t 0x203
+            sdowrite_motor4_can_id: !uint32_t 0
+            sdowrite_can_inst: !uint8_t 2
+            sdowrite_motor1_control_type: !uint8_t 2
+            sdowrite_motor1_speed_pid_kp: !float 13.5
+            sdowrite_motor1_speed_pid_ki: !float 1.0
+            sdowrite_motor1_speed_pid_kd: !float 0.0
+            sdowrite_motor1_speed_pid_max_out: !float 16384.0
+            sdowrite_motor1_speed_pid_max_iout: !float 2000.0
+            sdowrite_motor2_control_type: !uint8_t 2
+            sdowrite_motor2_speed_pid_kp: !float 13.5
+            sdowrite_motor2_speed_pid_ki: !float 1.0
+            sdowrite_motor2_speed_pid_kd: !float 0.0
+            sdowrite_motor2_speed_pid_max_out: !float 16384.0
+            sdowrite_motor2_speed_pid_max_iout: !float 2000.0
+            sdowrite_motor3_control_type: !uint8_t 1
+        - app_3:
+            sdowrite_task_type: !uint8_t 5
+            conf_connection_lost_read_action: !uint8_t 0x02
+            sdowrite_connection_lost_write_action: !uint8_t 0x02
+            pub_topic: !std::string '/pitch_motor_read'
+            pdoread_offset: !uint16_t 48
+            sub_topic: !std::string '/pitch_motor_write'
+            pdowrite_offset: !uint16_t 9
+            sdowrite_control_period: !uint16_t 1
+            sdowrite_can_packet_id: !uint32_t 0x1ff
+            sdowrite_motor1_can_id: !uint32_t 0x208
+            sdowrite_motor2_can_id: !uint32_t 0
+            sdowrite_motor3_can_id: !uint32_t 0
+            sdowrite_motor4_can_id: !uint32_t 0
+            sdowrite_can_inst: !uint8_t 2
+            sdowrite_motor1_control_type: !uint8_t 3
+            sdowrite_motor1_speed_pid_kp: !float 65.0
+            sdowrite_motor1_speed_pid_ki: !float 0.2
+            sdowrite_motor1_speed_pid_kd: !float 0.0
+            sdowrite_motor1_speed_pid_max_out: !float 25000
+            sdowrite_motor1_speed_pid_max_iout: !float 3000
+            sdowrite_motor1_angle_pid_kp: !float 2.0
+            sdowrite_motor1_angle_pid_ki: !float 0.0
+            sdowrite_motor1_angle_pid_kd: !float 20.5
+            sdowrite_motor1_angle_pid_max_out: !float 1800.0
+            sdowrite_motor1_angle_pid_max_iout: !float 0.0
+        - app_4:
+            sdowrite_task_type: !uint8_t 14
+            conf_connection_lost_read_action: !uint8_t 0x02
+            pub_topic: !std::string '/rc'
+            pdoread_offset: !uint16_t 57
+
+  - sn2883645:
+      sdo_len: !uint16_t 13
+      task_count: !uint8_t 2
+      latency_pub_topic: !std::string '/ecat/sn2883645/latency'
+
+      tasks:
+        - app_1:
+            sdowrite_task_type: !uint8_t 2
+            conf_connection_lost_read_action: !uint8_t 0x02
+            sdowrite_connection_lost_write_action: !uint8_t 0x02
+            pub_topic: !std::string '/steer_motor_read'
+            pdoread_offset: !uint16_t 0
+            sub_topic: !std::string '/steer_motor_write'
+            pdowrite_offset: !uint16_t 0
+            sdowrite_control_period: !uint16_t 1
+            sdowrite_can_inst: !uint8_t 1
+            sdowrite_control_type: !uint8_t 8
+        - app_2:
+            sdowrite_task_type: !uint8_t 2
+            conf_connection_lost_read_action: !uint8_t 0x02
+            sdowrite_connection_lost_write_action: !uint8_t 0x02
+            pub_topic: !std::string '/wheel_motor_read'
+            pdoread_offset: !uint16_t 32
+            sub_topic: !std::string '/wheel_motor_write'
+            pdowrite_offset: !uint16_t 8
+            sdowrite_control_period: !uint16_t 1
+            sdowrite_can_inst: !uint8_t 2
+            sdowrite_control_type: !uint8_t 8
+
+  - sn4587586:
+      sdo_len: !uint16_t 33
+      task_count: !uint8_t 3
+      latency_pub_topic: !std::string '/ecat/sn4587586/latency'
+
+      tasks:
+        - app_1:
+            sdowrite_task_type: !uint8_t 13
+            conf_connection_lost_read_action: !uint8_t 0x02
+            sdowrite_connection_lost_write_action: !uint8_t 0x02
+            pub_topic: !std::string '/main_cap_read'
+            pdoread_offset: !uint16_t 0
+            sub_topic: !std::string '/main_cap_write'
+            pdowrite_offset: !uint16_t 0
+            sdowrite_can_inst: !uint8_t 1
+            sdowrite_chassis_to_cap_id: !uint32_t 0x01
+            sdowrite_cap_to_chassis_id: !uint32_t 0x02
+        - app_2:
+            sdowrite_task_type: !uint8_t 2
+            conf_connection_lost_read_action: !uint8_t 0x02
+            sdowrite_connection_lost_write_action: !uint8_t 0x02
+            pub_topic: !std::string '/yaw_motor_read'
+            pdoread_offset: !uint16_t 7
+            sub_topic: !std::string '/yaw_motor_write'
+            pdowrite_offset: !uint16_t 4
+            sdowrite_control_period: !uint16_t 1
+            sdowrite_can_packet_id: !uint32_t 0x141
+            sdowrite_can_inst: !uint8_t 1
+            sdowrite_control_type: !uint8_t 2
+        - app_3:
+            sdowrite_task_type: !uint8_t 13
+            conf_connection_lost_read_action: !uint8_t 0x02
+            sdowrite_connection_lost_write_action: !uint8_t 0x02
+            pub_topic: !std::string '/steer_cap_read'
+            pdoread_offset: !uint16_t 15
+            sub_topic: !std::string '/steer_cap_write_unused'
+            pdowrite_offset: !uint16_t 7
+            sdowrite_can_inst: !uint8_t 2
+            sdowrite_chassis_to_cap_id: !uint32_t 0x01
+            sdowrite_cap_to_chassis_id: !uint32_t 0x02
+

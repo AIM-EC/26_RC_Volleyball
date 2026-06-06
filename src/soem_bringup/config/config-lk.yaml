@@ -1,0 +1,53 @@
+slaves:
+    - sn2883657:
+          sdo_len: !uint16_t 13
+          task_count: !uint8_t 2
+          latency_pub_topic: !std::string '/ecat/sn2883657/latency'
+
+          tasks:
+              - app_1:
+                    sdowrite_task_type: !uint8_t 2
+                    conf_connection_lost_read_action: !uint8_t 0x01
+                    sdowrite_connection_lost_write_action: !uint8_t 0x01
+                    pub_topic: !std::string '/steer_motor_read'
+                    pdoread_offset: !uint16_t 0
+                    sub_topic: !std::string '/steer_motor_write'
+                    pdowrite_offset: !uint16_t 0
+                    sdowrite_control_period: !uint16_t 1
+                    sdowrite_can_inst: !uint8_t 1
+                    sdowrite_control_type: !uint8_t 8
+              - app_2:
+                    sdowrite_task_type: !uint8_t 2
+                    conf_connection_lost_read_action: !uint8_t 0x01
+                    sdowrite_connection_lost_write_action: !uint8_t 0x01
+                    pub_topic: !std::string '/wheel_motor_read'
+                    pdoread_offset: !uint16_t 32
+                    sub_topic: !std::string '/wheel_motor_write'
+                    pdowrite_offset: !uint16_t 8
+                    sdowrite_control_period: !uint16_t 1
+                    sdowrite_can_inst: !uint8_t 2
+                    sdowrite_control_type: !uint8_t 8
+
+    - sn3604532:
+          sdo_len: !uint16_t 13
+          task_count: !uint8_t 2
+          latency_pub_topic: !std::string '/ecat/sn3604532/latency'
+
+          tasks:
+              - app_1:
+                    sdowrite_task_type: !uint8_t 1
+                    conf_connection_lost_read_action: !uint8_t 0x01
+                    pub_topic: !std::string '/ecat/sn3604532/app1/read'
+                    pdoread_offset: !uint16_t 0
+              - app_2:
+                    sdowrite_task_type: !uint8_t 13
+                    conf_connection_lost_read_action: !uint8_t 0x01
+                    sdowrite_connection_lost_write_action: !uint8_t 0x01
+                    pub_topic: !std::string '/cap'
+                    pdoread_offset: !uint16_t 19
+                    sub_topic: !std::string '/ecat/sn3604532/app2/write'
+                    pdowrite_offset: !uint16_t 0
+                    sdowrite_can_inst: !uint8_t 1
+                    sdowrite_chassis_to_cap_id: !uint32_t 0x01
+                    sdowrite_cap_to_chassis_id: !uint32_t 0x02
+

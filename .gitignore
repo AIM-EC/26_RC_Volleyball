@@ -1,0 +1,9 @@
+# ROS 2 workspace directories
+build/
+install/
+log/
+
+# IDE config files
+.idea/
+.vscode/
+*.swp

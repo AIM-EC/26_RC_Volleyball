@@ -1,0 +1,4 @@
+uint8 cap_enable
+uint8 do_charge
+uint8 max_charge_power
+uint8 allow_charge_power
