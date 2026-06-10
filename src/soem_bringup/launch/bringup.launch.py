@@ -7,7 +7,7 @@ def generate_launch_description():
     config_file = os.path.join(
         get_package_share_directory('soem_bringup'),
         'config',
-        'config-inf3.yaml'
+        'config-vol.yaml'
     )
 
     return LaunchDescription([
