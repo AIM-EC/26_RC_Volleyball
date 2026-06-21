@@ -1,3 +1,0 @@
-[submodule "src/soem/soem"]
-	path = src/soem/soem
-	url = https://github.com/OpenEtherCATsociety/SOEM.git

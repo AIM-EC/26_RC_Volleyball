@@ -1,5 +1,0 @@
-build/
-install/
-log/
-/src/soem_wrapper/launch/bringup.launch.py
-/src/soem_wrapper/config/dev-config.yaml
